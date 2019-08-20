@@ -1,3 +1,5 @@
+import math
+
 class Fraction:
     """A fraction with a numerator and denominator and arithmetic operations.
 
@@ -12,16 +14,30 @@ class Fraction:
         """Initialize a new fraction with the given numerator
            and denominator (default 1).
         """
-        #TODO write this (and remove this TODO comment)
-        pass
+        ## //math.gcd to make the fraction be proper form
+        self.gcd = math.gcd(numerator,denominator)
+        if denominator<0:
+            self.numerator = -numerator//self.gcd
+            self.denominator = -denominator//self.gcd
+        #inverse the denominatr and numerator because denominator must be positive or zero
+        else:
+            self.numerator = numerator//self.gcd
+            self.denominator = denominator//self.gcd
 
-    #TODO Write the __add__ method, and remove this TODO comment.
     def __add__(self, frac):
         """Return the sum of two fractions as a new fraction.
            Use the standard formula  a/b + c/d = (ad+bc)/(b*d)
         """
-        pass
+        self.new_num = (self.numerator * frac.denominator) + (frac.numerator * self.denominator)
+        self.new_deno = (self.denominator * frac.denominator)
+        return Fraction(self.new_num,self.new_deno)
+        
 
+    def __str__(self):
+        if self.denominator == 1 or self.denominator == -1:
+            return '{}'.format(self.numerator)
+        else:
+            return '{}/{}'.format(self.numerator,self.denominator)
     #TODO write __mul__ and __str__.  Verify __eq__ works with your code.
     #Optional have fun and overload other operators such as 
     # __sub__ for f-g
