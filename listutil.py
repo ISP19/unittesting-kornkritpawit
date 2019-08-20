@@ -1,4 +1,4 @@
-def unique(list):
+def unique(lst):
     """Return a list containing only the first occurence of each distint
        element in list.  That is, all duplicates are omitted.
 
@@ -15,7 +15,14 @@ def unique(list):
     >>> unique([])
     []
     """
-    pass   # remove this and write the actual code
+    not_same = []
+    if type(lst) != list:
+        raise TypeError()
+    for i in lst:
+        if i not in not_same:
+            not_same.append(i)
+    return not_same
+    # return list(set(lst))
 
 if __name__ == "__main__":
     """Run the doctests in all methods."""
