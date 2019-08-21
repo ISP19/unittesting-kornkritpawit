@@ -31,6 +31,30 @@ class Fraction:
         self.new_num = (self.numerator * frac.denominator) + (frac.numerator * self.denominator)
         self.new_deno = (self.denominator * frac.denominator)
         return Fraction(self.new_num,self.new_deno)
+    
+    def __sub__(self, frac):
+        """Return the  of two fractions as a new fraction.
+           Use the standard formula  a/b + c/d = (ad+bc)/(b*d)
+        """
+        self.new_num = (self.numerator * frac.denominator) - (frac.numerator * self.denominator)
+        self.new_deno = (self.denominator * frac.denominator)
+        return Fraction(self.new_num,self.new_deno)
+
+    def __mul__(self, frac):
+        self.new_num = self.numerator*frac.numerator
+        self.new_deno = self.denominator*frac.denominator
+        return Fraction(self.new_num,self.new_deno)
+    
+    def __gt__(self, frac):
+        self.self_value = self.numerator/self.denominator
+        self.other_value = frac.numerator/frac.denominator
+        if self.self_value > self.other_value:
+            return True
+        else:
+            return False
+    
+    def __neg__(self)
+        self.numerator = -self.numerator
         
 
     def __str__(self):
@@ -44,6 +68,8 @@ class Fraction:
     # __gt__  for f > g
     # __neg__ for -f (negation)
 
+    
+        
     def __eq__(self, frac):
         """Two fractions are equal if they have the same value.
            Fractions are stored in proper form so the internal representation
