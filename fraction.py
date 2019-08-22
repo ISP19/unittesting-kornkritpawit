@@ -50,11 +50,16 @@ class Fraction:
         return Fraction(self.new_num,self.new_deno)
 
     def __mul__(self, frac):
+        """Return the product of two fractions as a new fraction.
+           Use the standard formula  a/b * c/d = ac/bd
+        """
         self.new_num = self.numerator*frac.numerator
         self.new_deno = self.denominator*frac.denominator
         return Fraction(self.new_num,self.new_deno)
     
     def __gt__(self, frac):
+        """compare the fractions
+        """      
         if self.denominator==0 and frac.denominator!=0:
             return True
         elif self.denominator==0 and frac.denominator==0:
@@ -71,10 +76,12 @@ class Fraction:
             return False
     
     def __neg__(self):
+        """inverse fraction + to -, - to +"""
         self.numerator = -self.numerator
         
 
     def __str__(self):
+        """print fraction"""
         if self.denominator == 1 or self.denominator == -1:
             return '{}'.format(self.numerator)
         else:
