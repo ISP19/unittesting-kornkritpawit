@@ -15,19 +15,26 @@ class Fraction:
            and denominator (default 1).
         """
         ## //math.gcd to make the fraction be proper form
+        if type(numerator)!=int or type(denominator)!=int:
+            raise TypeError()
         self.gcd = math.gcd(numerator,denominator)
         if denominator<0:
             self.numerator = -numerator//self.gcd
             self.denominator = -denominator//self.gcd
         #inverse the denominatr and numerator because denominator must be positive or zero
-        else:
+        elif denominator>0:
             self.numerator = numerator//self.gcd
             self.denominator = denominator//self.gcd
+        else:
+            self.numerator = numerator
+            self.denominator = denominator
 
     def __add__(self, frac):
         """Return the sum of two fractions as a new fraction.
            Use the standard formula  a/b + c/d = (ad+bc)/(b*d)
         """
+        if self.denominator==0 or frac.denominator==0:
+            return Fraction(0,0)
         self.new_num = (self.numerator * frac.denominator) + (frac.numerator * self.denominator)
         self.new_deno = (self.denominator * frac.denominator)
         return Fraction(self.new_num,self.new_deno)
@@ -36,6 +43,8 @@ class Fraction:
         """Return the  of two fractions as a new fraction.
            Use the standard formula  a/b + c/d = (ad+bc)/(b*d)
         """
+        if self.denominator==0 or frac.denominator==0:
+            return Fraction(0,0)
         self.new_num = (self.numerator * frac.denominator) - (frac.numerator * self.denominator)
         self.new_deno = (self.denominator * frac.denominator)
         return Fraction(self.new_num,self.new_deno)
@@ -46,6 +55,14 @@ class Fraction:
         return Fraction(self.new_num,self.new_deno)
     
     def __gt__(self, frac):
+        if self.denominator==0 and frac.denominator!=0:
+            return True
+        elif self.denominator==0 and frac.denominator==0:
+            if self.numerator > frac.denominator:
+                return True
+            else:
+                return False
+        
         self.self_value = self.numerator/self.denominator
         self.other_value = frac.numerator/frac.denominator
         if self.self_value > self.other_value:
@@ -53,7 +70,7 @@ class Fraction:
         else:
             return False
     
-    def __neg__(self)
+    def __neg__(self):
         self.numerator = -self.numerator
         
 
