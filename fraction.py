@@ -18,16 +18,22 @@ class Fraction:
         if type(numerator)!=int or type(denominator)!=int:
             raise TypeError()
         self.gcd = math.gcd(numerator,denominator)
-        if denominator<0:
+        if denominator<0 :
             self.numerator = -numerator//self.gcd
             self.denominator = -denominator//self.gcd
         #inverse the denominatr and numerator because denominator must be positive or zero
-        elif denominator>0:
+        elif denominator>0 :
             self.numerator = numerator//self.gcd
             self.denominator = denominator//self.gcd
-        else:
-            self.numerator = numerator
+        elif denominator ==0:
+            if numerator>0:
+                self.numerator = 1
+            elif numerator == 0:
+                self.numerator =numerator
+            elif numerator <0:
+                self.numerator = -1
             self.denominator = denominator
+            
 
     def __add__(self, frac):
         """Return the sum of two fractions as a new fraction.
@@ -63,7 +69,7 @@ class Fraction:
         if self.denominator==0 and frac.denominator!=0:
             return True
         elif self.denominator==0 and frac.denominator==0:
-            if self.numerator > frac.denominator:
+            if self.numerator > frac.numerator:
                 return True
             else:
                 return False
