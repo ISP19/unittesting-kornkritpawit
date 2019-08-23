@@ -13,7 +13,7 @@ Write a table describing your test cases.
 | one item               |  list with 1 item   |
 | one item many times    |  list with 1 item   |
 | 2 items, many times, many orders | 2 item list, items in same order  |
-| what other test case?  |  what result?       |
-
+| many items same and unsame types, unorders   | list with unsame many items|
+|non list                |  raised TypeError   |
 
 ## Test Cases for Fraction
