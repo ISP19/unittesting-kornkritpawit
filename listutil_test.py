@@ -28,6 +28,8 @@ class ListUtilTest(unittest.TestCase):
         self.assertListEqual(['a','b','c'], unique(['a','b','c','c','a','b','c','a','b']))
         self.assertListEqual([3,5], unique([3,3,3,3,5,5,3,5,5,3,3]))
         self.assertListEqual([4,'4',[]], unique([4,4,'4',4,[],'4',[],[]]))
+        self.assertListEqual([[1,2],[],['hdh']],unique([[1,2],[],[1,2],['hdh'],[],[],[1,2]]))
+
 
     def test_insert_notlist(self):
         with self.assertRaises(TypeError):
@@ -36,8 +38,13 @@ class ListUtilTest(unittest.TestCase):
             unique('a')
         with self.assertRaises(TypeError):
             unique({})
+        with self.assertRaises(TypeError):
+            unique(())
         
-    
+    def test_verylarge_list(self):
+        self.assertListEqual([1,2,3,4], unique([1,2,3,4,3,2,3,4,3,3,2,1,2,3,4,3,3,3,2,2,1,1,4,3,2,3,4,3,2,2,1,2,1,3,4,3,2,1,2,3,4,4,3,2,2,3,4,3,2,3,4,3,2,2,1,2,3,4,4,3,2,1,2,3,4,3,2,1,2,3,4,3,3,4,2,1,2,3,4,3,2,1,2,3,4]))
+
+        
         
 
     
