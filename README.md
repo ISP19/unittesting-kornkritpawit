@@ -1,3 +1,5 @@
+[![Build Status](https://travis-ci.com/kornkritpawit/unittesting-kornkritpawit.svg?branch=master)](https://travis-ci.com/kornkritpawit/unittesting-kornkritpawit)
+
 ## Unit Testing Assignment
 
 by Kritpawit Soongswang.
