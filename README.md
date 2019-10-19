@@ -1,4 +1,5 @@
 [![Build Status](https://travis-ci.com/kornkritpawit/unittesting-kornkritpawit.svg?branch=master)](https://travis-ci.com/kornkritpawit/unittesting-kornkritpawit)
+[![codecov](https://codecov.io/gh/kornkritpawit/unittesting-kornkritpawit/branch/master/graph/badge.svg)](https://codecov.io/gh/kornkritpawit/unittesting-kornkritpawit)
 
 ## Unit Testing Assignment
 
