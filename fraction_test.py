@@ -162,3 +162,6 @@ class FractionTest(unittest.TestCase):
         f = Fraction(2)
         g = Fraction(2)
         self.assertTrue(f == g)
+
+if __name__ == '__main__':
+     unittest.main(verbosity=2)
